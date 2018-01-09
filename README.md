@@ -8,18 +8,62 @@ Entrega por un lado, datos estáticos con informacion sobre los fondos y por otr
 ## Endpoints
 
 ### Datos estáticos
-Todos los fondos:  
+__Todos los fondos:__  
   `${URL}/api/v1/static/fondos`  
   
-Datos de fondo específico:  
+__Datos de fondo específico:__  
 `${URL}/api/v1/static/fondo/${fondo.id}`
 
-Todos los tipos de fondo:  
+__Todos los tipos de fondo:__  
   `${URL}/api/v1/static/tipos`
   
-Datos de tipo específico:  
+__Datos de tipo específico:__  
 `${URL}/api/v1/static/tipo/${tipo.slug}`
 
+### Datos históricos  
+__Composicion de un fondo:__
+
+`${URL}/api/v1/data/${fondo.id}/composicion`  
+
+Respuesta de ej:  
+  
+`https://fima-api.now.sh/api/v1/data/acciones/composicion`
+
+```
+[{
+  label: "SERVICIOS",
+  value: "31.61"
+},
+{
+  label: "BANCOS",
+  value: "22.21"
+} ...]
+```
+  
+__Rendimiento acumulado de un fondo:__  
+
+Recibe 3 parámetros _opcionales_:
+- Fecha de inicio (en formato YYYYMMDD).
+- Fecha final (en formato YYYYMMDD).
+- Cantidad de dinero (Float o integer).  
+De no recibir ningun parámetro, devuelve el rendimiento en el último año sin ninguna cantidad de dinero.  
+
+`${URL}/api/v1/data/${fondo.id}/rendimiento/${fechaInicio}/${fechaFin}/${moneyQty}`
+
+Respuesta de ej:  
+  
+`https://fima-api.now.sh/api/v1/data/acciones/rendimiento/20170707/20170710/1000`
+
+```
+[{
+  date: "07/07/2017",
+  value: 0,
+  earned: 0,
+  total: 1000
+}, ...]
+```
+
+Los últimos dos items solo aparecen cuando existe el parametro de dinero.
 
 ## Instalación
 
