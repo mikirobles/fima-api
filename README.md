@@ -57,9 +57,9 @@ Respuesta de ej:
 ```
 [{
   date: "07/07/2017",
-  value: 0,
-  earned: 0,
-  total: 1000
+  value: 0,  // % de rendimiento acumulado
+  earned: 0, // $ ganado
+  total: 1000 // $ total acumulado
 }, ...]
 ```
 
