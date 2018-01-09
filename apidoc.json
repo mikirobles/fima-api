@@ -1,0 +1,8 @@
+
+{
+    "name": "Fima-api",
+    "version": "1.0.0",
+    "description": "API para conocer datos de los distintos fondos comunes de inversión FIMA.",
+    "title": "Fima API - Fondos comunes de inversión",
+    "url" : "http://fima-api.now.sh"
+  }
